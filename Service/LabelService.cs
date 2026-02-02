@@ -15,7 +15,8 @@ public class LabelService
         
         foreach (string key in data.Keys)
         {
-            labels.Add(new Label(key, data[key]));
+            // get label print and draw tspl
+            // labels.Add(new Label(key, data[key]));
         }
         return labels;
     }
