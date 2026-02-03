@@ -76,7 +76,7 @@ public class SheetViewModel : BaseViewModel
 
     private void PrintSelectedCommand()
     {
-        // Todo: Get excel data form tables
+        // Todo: Get excel data form tables 
         Dictionary<string, string> data = new Dictionary<string, string>
         {
             { Name , "DF"},
