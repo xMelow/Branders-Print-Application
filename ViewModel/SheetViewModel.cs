@@ -76,7 +76,6 @@ public class SheetViewModel : BaseViewModel
 
     private void PrintSelectedCommand()
     {
-        
         Console.WriteLine($"Print selected values"); 
         
         Dictionary<string, string> data = new Dictionary<string, string>();
