@@ -24,18 +24,16 @@ public class PrintService
 
     private void PrintLabel(Label label)
     {
-        string tspl = label.PrintTSPL + label.DrawTSPL;
-        
         string printerFlorHostname = "PRN-Flor";
         int port = 9100;
 
-        Console.WriteLine(tspl);
+        Console.WriteLine(label.TsplContent);
 
         try
         {
             using (TcpClient client = new TcpClient(printerFlorHostname, port))
             {
-                byte[] data = Encoding.ASCII.GetBytes(tspl);
+                byte[] data = Encoding.ASCII.GetBytes(label.TsplContent);
                 var stream = client.GetStream();
                 stream.Write(data, 0, data.Length);
                 stream.Close();

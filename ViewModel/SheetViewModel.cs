@@ -76,10 +76,13 @@ public class SheetViewModel : BaseViewModel
 
     private void PrintSelectedCommand()
     {
-        Console.WriteLine($"Print selected values");
-        
-        Dictionary<string, string> data = new Dictionary<string, string>();
+        // Todo: Get excel data form tables
+        Dictionary<string, string> data = new Dictionary<string, string>
+        {
+            { Name , "DF"},
+        };
         List<Label> labels = _labelController.CreateLabels(data);
+        Console.WriteLine("labels: " + labels.Count);
         
         _printController.PrintLabels(labels);
     }

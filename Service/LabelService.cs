@@ -4,19 +4,21 @@ namespace Branders.Service;
 
 public class LabelService
 {
+    private readonly TsplTemplateService _templateService;
+    
     public LabelService()
     {
-        
+        _templateService = new TsplTemplateService();
     }
 
     public List<Label> CreateLabels(Dictionary<string, string> data)
     {
         List<Label> labels = new List<Label>();
         
-        foreach (string key in data.Keys)
+        foreach (string value in data.Values)
         {
-            // get label print and draw tspl
-            // labels.Add(new Label(key, data[key]));
+            string tspl = _templateService.GenerateTsplFromTemplate("I015163", data);
+            labels.Add(new Label(tspl));
         }
         return labels;
     }
