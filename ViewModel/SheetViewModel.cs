@@ -76,7 +76,8 @@ public class SheetViewModel : BaseViewModel
 
     private void PrintSelectedCommand()
     {
-        Console.WriteLine($"Print selected values");
+        
+        Console.WriteLine($"Print selected values"); 
         
         Dictionary<string, string> data = new Dictionary<string, string>();
         List<Label> labels = _labelController.CreateLabels(data);
