@@ -14,13 +14,14 @@ public class LabelService
     public List<Label> CreateLabels(Dictionary<string, List<string>> data)
     {
         List<Label> labels = new List<Label>();
-
-        for (int i = 0; i < data.Values.Count; i++)
+        foreach (var item in data)
         {
-            string tspl = _templateService.GenerateTsplFromTemplate(data);
-            labels.Add(new Label(tspl));
+            foreach (var labelData in item.Value)
+            {
+                string tspl = _templateService.GenerateTsplFromTemplate(item.Key, labelData);
+                labels.Add(new Label(tspl));
+            }
         }
-        Console.WriteLine(labels);
         return labels;
     }
 }

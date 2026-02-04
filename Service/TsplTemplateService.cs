@@ -6,20 +6,10 @@ namespace Branders.Service;
 
 public class TsplTemplateService
 {
-    public string GenerateTsplFromTemplate(Dictionary<string, List<string>> data)
+    public string GenerateTsplFromTemplate(string sheetName, string labelData)
     {
-        foreach (var value in data)
-        {
-            string template = GetTemplate(value.Key);
-            string tspl = "";
-            
-            foreach (var labelData in value.Value)
-            {
-                tspl = template.Replace("variable", labelData);
-            }
-            return tspl;
-        }
-        return "No label found";
+        string template = GetTemplate(sheetName);
+        return template.Replace("variable", labelData);
     }
 
     private string GetTemplate(string sheetName)
