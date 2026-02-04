@@ -66,7 +66,7 @@ public class SheetViewModel : BaseViewModel
 
     private void PrintAllCommand()
     {
-        Dictionary<string, string> data = new Dictionary<string, string>();
+        Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
         List<Label> labels = _labelController.CreateLabels(data);
         
         _printController.PrintLabels(labels);
@@ -75,10 +75,11 @@ public class SheetViewModel : BaseViewModel
     private void PrintSelectedCommand()
     {
         // Todo: Get excel data form tables 
-        Dictionary<string, string> data = new Dictionary<string, string>
+        Dictionary<string, List<string>> data = new Dictionary<string, List<string>>
         {
-            { Name , "DF"},
+            { Name, new List<string> {"DF", "Testing", "Flor"} }
         };
+        
         List<Label> labels = _labelController.CreateLabels(data);
         
         _printController.PrintLabels(labels);

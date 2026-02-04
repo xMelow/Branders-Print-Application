@@ -11,16 +11,16 @@ public class LabelService
         _templateService = new TsplTemplateService();
     }
 
-    public List<Label> CreateLabels(Dictionary<string, string> data)
+    public List<Label> CreateLabels(Dictionary<string, List<string>> data)
     {
         List<Label> labels = new List<Label>();
-        
-        foreach (string value in data.Values)
+
+        for (int i = 0; i < data.Values.Count; i++)
         {
-            string tspl = _templateService.GenerateTsplFromTemplate("I015163", data);
-            Console.WriteLine(tspl);
+            string tspl = _templateService.GenerateTsplFromTemplate(data);
             labels.Add(new Label(tspl));
         }
+        Console.WriteLine(labels);
         return labels;
     }
 }

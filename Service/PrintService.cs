@@ -1,6 +1,7 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using System.Windows;
+using System.Windows.Xps.Serialization;
 using Branders.Domain;
 
 namespace Branders.Service;
@@ -16,9 +17,11 @@ public class PrintService
 
     public void PrintLabels(List<Label> labels)
     {
+        Console.WriteLine(labels.Count);
         foreach (var label in labels)
         {
-            PrintLabel(label);
+            Console.WriteLine(label.TsplContent);
+            //PrintLabel(label);
         }
     }
 

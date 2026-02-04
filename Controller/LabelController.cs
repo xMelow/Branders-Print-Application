@@ -13,7 +13,7 @@ public class LabelController : ILabelController
         _labelService = new LabelService();
     }
 
-    public List<Label> CreateLabels(Dictionary<string, string> data)
+    public List<Label> CreateLabels(Dictionary<string, List<string>> data)
     {
         return _labelService.CreateLabels(data);
     }
