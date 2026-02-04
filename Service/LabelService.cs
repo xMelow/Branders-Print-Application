@@ -4,18 +4,23 @@ namespace Branders.Service;
 
 public class LabelService
 {
+    private readonly TsplTemplateService _templateService;
+    
     public LabelService()
     {
-        
+        _templateService = new TsplTemplateService();
     }
 
-    public List<Label> CreateLabels(Dictionary<string, string> data)
+    public List<Label> CreateLabels(Dictionary<string, List<string>> data)
     {
         List<Label> labels = new List<Label>();
-        
-        foreach (string key in data.Keys)
+        foreach (var item in data)
         {
-            labels.Add(new Label(key, data[key]));
+            foreach (var labelData in item.Value)
+            {
+                string tspl = _templateService.GenerateTsplFromTemplate(item.Key, labelData);
+                labels.Add(new Label(tspl));
+            }
         }
         return labels;
     }

@@ -23,3 +23,4 @@ C:\Users\Flor\RiderProjects\Branders\Branders\obj\Debug\net9.0-windows\Views\Mai
 C:\Users\Flor\RiderProjects\Branders\Branders\obj\Debug\net9.0-windows\Views\MainWindow.baml
 C:\Users\Flor\RiderProjects\Branders\Branders\obj\Debug\net9.0-windows\Branders.csproj.Up2Date
 C:\Users\Flor\RiderProjects\Branders\Branders\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Flor\RiderProjects\Branders\Branders\obj\Debug\net9.0-windows\Branders.sourcelink.json
