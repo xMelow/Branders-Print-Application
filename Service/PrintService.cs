@@ -26,9 +26,7 @@ public class PrintService
     {
         string printerFlorHostname = "PRN-Flor";
         int port = 9100;
-
-        Console.WriteLine(label.TsplContent);
-
+        
         try
         {
             using (TcpClient client = new TcpClient(printerFlorHostname, port))

@@ -66,8 +66,6 @@ public class SheetViewModel : BaseViewModel
 
     private void PrintAllCommand()
     {
-        Console.WriteLine($"Button clicked for sheet {Name} Print all");
-
         Dictionary<string, string> data = new Dictionary<string, string>();
         List<Label> labels = _labelController.CreateLabels(data);
         
@@ -82,7 +80,6 @@ public class SheetViewModel : BaseViewModel
             { Name , "DF"},
         };
         List<Label> labels = _labelController.CreateLabels(data);
-        Console.WriteLine("labels: " + labels.Count);
         
         _printController.PrintLabels(labels);
     }

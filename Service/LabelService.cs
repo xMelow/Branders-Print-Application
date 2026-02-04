@@ -18,6 +18,7 @@ public class LabelService
         foreach (string value in data.Values)
         {
             string tspl = _templateService.GenerateTsplFromTemplate("I015163", data);
+            Console.WriteLine(tspl);
             labels.Add(new Label(tspl));
         }
         return labels;

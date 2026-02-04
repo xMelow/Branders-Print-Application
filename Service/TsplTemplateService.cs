@@ -8,16 +8,16 @@ public class TsplTemplateService
     
     public string GenerateTsplFromTemplate(string templateName, Dictionary<string, string> data)
     {
-        
         string template = GetTemplate(templateName);
+        string tspl = "";
 
         foreach (var item in data)
         {
             Console.WriteLine(item);
-            template = template.Replace("variable", item.Value);
+            tspl = template.Replace("variable", item.Value);
         }
         
-        return "";
+        return tspl;
     }
 
     private string GetTemplate(string templateName)
