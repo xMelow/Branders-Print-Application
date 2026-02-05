@@ -18,21 +18,6 @@ public class SheetViewModel : BaseViewModel
     
     public ICommand SheetPrintAllCommand { get; }
     public ICommand SheetPrintSelectedCommand { get; }
-    public ICommand SelectAllColumnsCommand { get; }
-    private bool _allSelected = true;
-    public bool AllSelected
-    {
-        get => _allSelected;
-        set
-        {
-            if (_allSelected != value)
-            {
-                _allSelected = value;
-                OnPropertyChanged();
-                SetAllColumns(value);
-            }
-        }
-    }
 
     public SheetViewModel(DataTable dataTable)
     {
@@ -46,27 +31,16 @@ public class SheetViewModel : BaseViewModel
         _printController = new PrintController();
         _labelController = new LabelController();
 
-        SelectAllColumnsCommand = new RelayCommand(ToggleSelectAll);
         SheetPrintAllCommand = new RelayCommand(PrintAllCommand);
         SheetPrintSelectedCommand = new RelayCommand(PrintSelectedCommand);
     }
 
-    private void ToggleSelectAll()
-    {
-        AllSelected = !AllSelected;
-    }
-
-    private void SetAllColumns(bool select)
-    {
-        foreach (var col in Columns)
-        {
-            col.IsSelected = select;
-        }
-    }
-
     private void PrintAllCommand()
     {
-        Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
+        Dictionary<string, List<string>> data = new Dictionary<string, List<string>>
+        {
+            { Name, GetExcelData() }
+        };
         List<Label> labels = _labelController.CreateLabels(data);
         
         _printController.PrintLabels(labels);
@@ -74,7 +48,6 @@ public class SheetViewModel : BaseViewModel
 
     private void PrintSelectedCommand()
     {
-        // Todo: Get excel data form tables 
         Dictionary<string, List<string>> data = new Dictionary<string, List<string>>
         {
             { Name, new List<string> {"DF", "Testing", "Flor"} }
@@ -83,5 +56,19 @@ public class SheetViewModel : BaseViewModel
         List<Label> labels = _labelController.CreateLabels(data);
         
         _printController.PrintLabels(labels);
+    }
+
+    private List<string> GetExcelData()
+    {
+        List<string> data = new List<string>();
+
+        Console.WriteLine(View.Table.Columns);
+
+        // foreach (string labelData in excelDataList)
+        // {
+        //     data.Add(labelData);
+        // }
+        
+        return data;
     }
 }

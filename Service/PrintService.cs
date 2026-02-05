@@ -17,10 +17,9 @@ public class PrintService
 
     public void PrintLabels(List<Label> labels)
     {
-        Console.WriteLine(labels.Count);
         foreach (var label in labels)
         {
-            Console.WriteLine(label.TsplContent);
+            Console.WriteLine("Printing... "  + label.TsplContent); // placeholder to not waste labels
             //PrintLabel(label);
         }
     }
