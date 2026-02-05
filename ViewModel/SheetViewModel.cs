@@ -39,7 +39,7 @@ public class SheetViewModel : BaseViewModel
     {
         Dictionary<string, List<string>> data = new Dictionary<string, List<string>>
         {
-            { Name, GetExcelData() }
+            { Name, GetExcelDataFromColumn() }
         };
         List<Label> labels = _labelController.CreateLabels(data);
         
@@ -58,17 +58,19 @@ public class SheetViewModel : BaseViewModel
         _printController.PrintLabels(labels);
     }
 
-    private List<string> GetExcelData()
+    private List<string> GetExcelDataFromColumn()
     {
         List<string> data = new List<string>();
+        string columnName = "Column1";
 
-        Console.WriteLine(View.Table.Columns);
-
-        // foreach (string labelData in excelDataList)
-        // {
-        //     data.Add(labelData);
-        // }
-        
+        if (View.Table.Columns.Contains(columnName))
+        {
+            foreach (DataRowView dataRowView in View)
+            {
+                data.Add(dataRowView[columnName]?.ToString() ?? string.Empty);
+                Console.WriteLine(dataRowView[columnName]);
+            }
+        }
         return data;
     }
 }
