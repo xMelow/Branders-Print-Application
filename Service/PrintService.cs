@@ -19,7 +19,8 @@ public class PrintService
     {
         foreach (var label in labels)
         {
-            Console.WriteLine("Printing... "  + label.TsplContent); // placeholder to not waste labels
+            // placeholder to not waste labels
+            Console.WriteLine("Printing... "  + label.TsplContent);
             //PrintLabel(label);
         }
     }

@@ -4,7 +4,6 @@ public class SheetColumnViewModel : BaseViewModel
 {
     public string ColumnName { get; }
     private bool _isSelected;
-
     public bool IsSelected
     {
         get => _isSelected;
